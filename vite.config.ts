@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/iu-acm-chapter/', // أضف هذا السطر هنا
   plugins: [
     react(),
     tailwindcss(),
