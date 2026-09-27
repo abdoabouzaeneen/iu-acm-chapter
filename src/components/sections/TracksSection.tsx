@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ArrowRight, CheckCircle2, ChevronRight, Sparkles, Terminal } from 'lucide-react';
-import { useLanguage } from '../../i18n/LanguageContext';
+import { useLanguage } from '../../i18n/context';
 import { TRANSLATIONS, LOCALIZED_TEAMS } from '../../i18n/translations';
 
 interface TracksSectionProps {

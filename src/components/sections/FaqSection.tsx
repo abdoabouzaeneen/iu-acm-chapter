@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown, Mail } from 'lucide-react';
-import { useLanguage } from '../../i18n/LanguageContext';
+import { useLanguage } from '../../i18n/context';
 import { TRANSLATIONS, LOCALIZED_FAQS } from '../../i18n/translations';
 
 export function FaqSection() {

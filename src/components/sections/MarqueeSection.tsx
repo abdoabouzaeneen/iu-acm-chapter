@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLanguage } from '../../i18n/LanguageContext';
+import { useLanguage } from '../../i18n/context';
 import { TRANSLATIONS, LOCALIZED_MARQUEE } from '../../i18n/translations';
 
 export function MarqueeSection() {
@@ -37,7 +37,8 @@ export function MarqueeSection() {
           <div className={`marquee-track text-sm sm:text-lg lg:text-xl ${isRtl ? 'font-arabic' : ''}`}>
             {/* Group 1 */}
             <div className="marquee-item text-white">
-              {statements.map((stmt, idx) => (\n                <React.Fragment key={`stmt-a-${idx}`}>
+              {statements.map((stmt, idx) => (
+                <React.Fragment key={`stmt-a-${idx}`}>
                   <span className={`${isRtl ? 'font-bold tracking-normal' : "font-['Plus_Jakarta_Sans',sans-serif] font-bold tracking-[2px] uppercase"}`}>
                     {stmt}
                   </span>

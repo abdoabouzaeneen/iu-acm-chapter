@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Calendar, Clock, MapPin, User, ArrowUpRight, CheckCircle } from 'lucide-react';
-import { useLanguage } from '../../i18n/LanguageContext';
+import { useLanguage } from '../../i18n/context';
 import { TRANSLATIONS, LOCALIZED_EVENTS } from '../../i18n/translations';
 
 interface EventsSectionProps {

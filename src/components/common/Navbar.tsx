@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon, ArrowRight, Languages } from 'lucide-react';
 import { AcmLogo } from './AcmLogo';
-import { useLanguage } from '../../i18n/LanguageContext';
+import { useLanguage } from '../../i18n/context';
 import { TRANSLATIONS, LOCALIZED_NAV_LINKS } from '../../i18n/translations';
 
 interface NavbarProps {

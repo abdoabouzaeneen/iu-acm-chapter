@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, CheckCircle2, Send, Terminal } from 'lucide-react';
-import { useLanguage } from '../../i18n/LanguageContext';
+import { useLanguage } from '../../i18n/context';
 import { TRANSLATIONS, LOCALIZED_TEAMS, LOCALIZED_COMMITTEES } from '../../i18n/translations';
 
 interface JoinModalProps {
@@ -33,7 +33,8 @@ export function JoinModal({ isOpen, onClose, defaultTrack }: JoinModalProps) {
       if (e.key === 'Escape') onClose();
     };
     if (isOpen) {
-      window.addEventListener('keydown', handleKeyDown);\n      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
     }
     return () => {
       window.removeEventListener('keydown', handleKeyDown);

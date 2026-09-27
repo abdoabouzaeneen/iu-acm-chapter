@@ -1,6 +1,6 @@
 import { MessageSquare, Mail, MapPin, ExternalLink, Heart } from 'lucide-react';
 import { AcmLogo } from './AcmLogo';
-import { useLanguage } from '../../i18n/LanguageContext';
+import { useLanguage } from '../../i18n/context';
 import { TRANSLATIONS, LOCALIZED_COMMITTEES, LOCALIZED_TEAMS, LOCALIZED_NAV_LINKS } from '../../i18n/translations';
 
 export function Footer() {
@@ -95,7 +95,8 @@ export function Footer() {
               <span className="text-[#2c5f85] dark:text-[#61afef] font-mono">&#123;</span> {t.footer.committeesTitle} <span className="text-[#2c5f85] dark:text-[#61afef] font-mono">&#125;</span>
             </h4>
             <ul className="space-y-2.5 text-sm text-text-secondary">
-              {committees.map((comm) => (\n                <li key={comm.id}>
+              {committees.map((comm) => (
+                <li key={comm.id}>
                   <a href="#committees" className="hover:text-[#2c5f85] dark:hover:text-[#61afef] hover:underline underline-offset-4 transition-colors">
                     {comm.name}
                   </a>

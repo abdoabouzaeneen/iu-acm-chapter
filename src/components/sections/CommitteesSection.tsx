@@ -1,5 +1,5 @@
 import { Check, ShieldCheck, ArrowRight, Lock, UserPlus } from 'lucide-react';
-import { useLanguage } from '../../i18n/LanguageContext';
+import { useLanguage } from '../../i18n/context';
 import { TRANSLATIONS, LOCALIZED_COMMITTEES } from '../../i18n/translations';
 
 interface CommitteesSectionProps {
@@ -151,7 +151,8 @@ export function CommitteesSection({ onOpenJoinModal }: CommitteesSectionProps) {
                         {t.committees.joinTeam}
                       </button>
                     </div>
-                  ) : (\n                    <button
+                  ) : (
+                    <button
                       onClick={() => onOpenJoinModal(comm.id)}
                       className="px-3 py-1.5 bg-[#2c5f85] hover:bg-[#224b69] text-white rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs"
                     >

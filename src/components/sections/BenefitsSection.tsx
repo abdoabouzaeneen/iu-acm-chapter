@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react';
-import { useLanguage } from '../../i18n/LanguageContext';
+import { useLanguage } from '../../i18n/context';
 import { TRANSLATIONS, LOCALIZED_BENEFITS } from '../../i18n/translations';
 
 interface BenefitsSectionProps {

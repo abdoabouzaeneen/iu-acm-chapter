@@ -41,7 +41,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   };
 
   const toggleLang = () => {
-    setLangState((prev) => (prev === 'en' ? 'ar' : 'en'));
+    setLangState((prev: Language) => (prev === 'en' ? 'ar' : 'en'));
   };
 
   return (

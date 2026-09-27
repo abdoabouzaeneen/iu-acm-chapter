@@ -1,4 +1,4 @@
-import { useLanguage } from '../../i18n/LanguageContext';
+import { useLanguage } from '../../i18n/context';
 import { TRANSLATIONS } from '../../i18n/translations';
 
 interface AcmLogoProps {
@@ -38,7 +38,8 @@ export function AcmLogo({
     ? 'text-[#e5c07b]'
     : 'text-[var(--color-logo-text)]';
 
-  return (\n    <div className={`flex items-center gap-3 select-none ${className}`}>
+  return (
+    <div className={`flex items-center gap-3 select-none ${className}`}>
       {/* HTML Logo Badge as defined in light_Mode_Logo.html & dark_Mode_Logo.html */}
       <div
         className={`font-['Plus_Jakarta_Sans',sans-serif] font-bold tracking-[-0.5px] flex items-center leading-none ${sizeClasses}`}

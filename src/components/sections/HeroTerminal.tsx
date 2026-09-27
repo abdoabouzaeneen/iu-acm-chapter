@@ -466,7 +466,8 @@ export function HeroTerminal({ onOpenJoinModal, onToggleTheme }: HeroTerminalPro
             >
               <Cpu size={13} />
               <span>{t.hero.tabOutput}</span>
-              {isRunning && (\n                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+              {isRunning && (
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
               )}
             </button>
           </div>
@@ -581,7 +582,7 @@ export function HeroTerminal({ onOpenJoinModal, onToggleTheme }: HeroTerminalPro
                     {'  '}<span className="text-[#C678DD]">def</span> <span className="text-[#61AFEF]">__init__</span>(self, vocab_size=32000, d_model=512):{'\n'}
                     {'    '}<span className="text-[#4C8EBE]">super</span>().__init__(){'\n'}
                     {'    '}self.encoder = nn.TransformerEncoderLayer(d_model=d_model, nhead=8){'\n'}
-                    {'    '}<span className="text-[#4C8EBE]">print</span>(<span className="text-[#98C379]">\"IU ACM AI Team: Multilingual LLM Initialized.\"</span>){'\\n\\n'}
+                    {'    '}<span className="text-[#4C8EBE]">print</span>(<span className="text-[#98C379]">\"IU ACM AI Team: Multilingual LLM Initialized.\"</span>){'\n\n'}
                     model = ArabicNLPModel()
                   </>
                 )}

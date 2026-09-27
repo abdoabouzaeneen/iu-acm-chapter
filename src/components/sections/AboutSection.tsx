@@ -1,6 +1,6 @@
 import { CheckCircle2, Compass, Cpu, Target, Users } from 'lucide-react';
 import { AcmLogo } from '../common/AcmLogo';
-import { useLanguage } from '../../i18n/LanguageContext';
+import { useLanguage } from '../../i18n/context';
 import { TRANSLATIONS } from '../../i18n/translations';
 
 const PILLAR_ICONS = [Target, Users, Compass, Cpu];
