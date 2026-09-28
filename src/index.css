@@ -1,11 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Noto Naskh Arabic', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Noto Naskh Arabic', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: 'Kufam', sans-serif;
+  --font-headline: 'Kufam', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-logo: 'Plus Jakarta Sans', sans-serif;
-  --font-arabic: 'Cairo', 'Tajawal', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-cairo: 'Cairo', sans-serif;
+  --font-label: 'Cairo', sans-serif;
+  --font-nav: 'Cairo', sans-serif;
+  --font-arabic: 'Noto Naskh Arabic', sans-serif;
 
   /* Semantic Theme Variables */
   --color-primary: var(--color-primary);
@@ -27,15 +32,15 @@
   --color-logo-text: var(--color-logo-text);
 }
 
-/* ☀️ LIGHT MODE (Canonical ACM Brand Palette) */
+/* ☀️ SINGLE CANONICAL THEME (Canonical ACM Brand Palette) */
 :root {
-  /* 1. Primary Blue (Curly Braces & Structural Framing) - #2C6B99 / #2c5f85 */
-  --color-primary: #2C6B99;
-  --color-primary-hover: #22547a;
+  /* 1. Primary Blue (Curly Braces & Structural Framing) - #2c5f85 */
+  --color-primary: #2c5f85;
+  --color-primary-hover: #224b69;
   --color-primary-container: #EEF4F8;
 
-  /* 2. Warm Gold / Bronze (Typography: acm, Focal Text, Headings) - #C29B48 / #c49b57 */
-  --color-secondary: #C29B48;
+  /* 2. Warm Gold / Bronze (Typography: acm, Focal Text, Headings) - #c49b57 */
+  --color-secondary: #c49b57;
   --color-secondary-hover: #A98335;
   --color-secondary-container: #FDF9EE;
 
@@ -50,53 +55,47 @@
   --color-border: #E2E8F0;
   --color-button-text: #FFFFFF;
 
-  /* HTML Logo Exact Tokens (Light Mode from assets/light_Mode_Logo.html) */
+  /* HTML Logo Exact Tokens */
   --color-logo-bracket: #2c5f85;
   --color-logo-text: #c49b57;
 }
 
-/* 🌙 DARK MODE (HTML Logo Exact Tokens from assets/dark_Mode_Logo.html) */
-.dark {
-  --color-primary: #4C8EBE;
-  --color-primary-hover: #3b7ea8;
-  --color-primary-container: #122135;
-
-  --color-secondary: #D9B159;
-  --color-secondary-hover: #e0bc68;
-  --color-secondary-container: #261F10;
-
-  --color-surface: #0A111E;
-  --color-surface-container: #111D30;
-  --color-surface-muted: #0F1728;
-
-  --color-text-primary: #F8FAFC;
-  --color-text-secondary: #94A3B8;
-  --color-border: #1E2E44;
-  --color-button-text: #FFFFFF;
-
-  /* HTML Logo Exact Tokens (Dark Mode) */
-  --color-logo-bracket: #61afef;
-  --color-logo-text: #e5c07b;
-}
-
 body {
-  font-family: var(--font-sans);
+  font-family: 'Noto Naskh Arabic', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: var(--color-surface);
   color: var(--color-text-primary);
-  transition: background-color 0.25s ease, color 0.25s ease;
   overflow-x: hidden;
 }
 
+/* 1. Headlines: Kufam */
+h1, h2, h3, h4, h5, h6, .font-display, .font-headline {
+  font-family: 'Kufam', sans-serif !important;
+}
+
+/* 2. Body / Paragraphs: Noto Naskh Arabic */
+p, .font-body, .font-sans {
+  font-family: 'Noto Naskh Arabic', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* 3. Labels / Buttons / Nav: Cairo */
+button, .btn, nav, nav a, label, .font-label, .font-cairo, .font-nav {
+  font-family: 'Cairo', sans-serif;
+}
+
 [dir="rtl"], [dir="rtl"] body {
-  font-family: var(--font-arabic);
+  font-family: 'Noto Naskh Arabic', sans-serif;
 }
 
-[dir="rtl"] .font-display {
-  font-family: 'Cairo', 'Space Grotesk', sans-serif;
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6, [dir="rtl"] .font-display {
+  font-family: 'Kufam', sans-serif !important;
 }
 
-[dir="rtl"] .font-sans {
-  font-family: var(--font-arabic);
+[dir="rtl"] p, [dir="rtl"] .font-body, [dir="rtl"] .font-sans {
+  font-family: 'Noto Naskh Arabic', sans-serif;
+}
+
+[dir="rtl"] button, [dir="rtl"] .btn, [dir="rtl"] nav, [dir="rtl"] nav a, [dir="rtl"] label, [dir="rtl"] .font-label, [dir="rtl"] .font-cairo {
+  font-family: 'Cairo', sans-serif;
 }
 
 /* Custom Scrollbar */

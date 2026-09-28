@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
+import { Router, Route, Switch, useLocation } from 'wouter';
 import { LanguageProvider } from './i18n/LanguageContext';
-import { useLanguage } from './i18n/context';
 import { Navbar } from './components/common/Navbar';
 import { Footer } from './components/common/Footer';
 import { JoinModal } from './components/common/JoinModal';
 import { HeroSection } from './components/sections/HeroSection';
-import { AboutSection } from './components/sections/AboutSection';
 import { TracksSection } from './components/sections/TracksSection';
 import { CommitteesSection } from './components/sections/CommitteesSection';
 import { MarqueeSection } from './components/sections/MarqueeSection';
@@ -13,21 +12,61 @@ import { EventsSection } from './components/sections/EventsSection';
 import { BenefitsSection } from './components/sections/BenefitsSection';
 import { FaqSection } from './components/sections/FaqSection';
 import { CtaSection } from './components/sections/CtaSection';
+import { AboutPage } from './pages/about';
+import { UpNextPage } from './pages/up-next';
+import { JourneyPage } from './pages/journey';
+
+interface HomePageProps {
+  onOpenJoinModal: (trackId?: string) => void;
+}
+
+function HomePage({ onOpenJoinModal }: HomePageProps) {
+  const [location] = useLocation();
+
+  // Smooth scroll to anchor if url contains hash
+  useEffect(() => {
+    if (window.location.hash) {
+      const el = document.querySelector(window.location.hash);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location]);
+
+  return (
+    <main className="flex-1 w-full">
+      {/* Hero Section */}
+      <HeroSection onOpenJoinModal={() => onOpenJoinModal()} />
+
+      {/* 1. Chapter Statements & Vision */}
+      <MarqueeSection />
+
+      {/* 2. Organizational Architecture */}
+      <CommitteesSection onOpenJoinModal={(committeeId) => onOpenJoinModal(committeeId)} />
+
+      {/* 3. Technical Committee Cohorts */}
+      <TracksSection onOpenJoinModal={(trackId) => onOpenJoinModal(trackId)} />
+
+      {/* Events & Contests Calendar */}
+      <EventsSection onOpenJoinModal={() => onOpenJoinModal()} />
+
+      {/* Membership Benefits */}
+      <BenefitsSection onOpenJoinModal={() => onOpenJoinModal()} />
+
+      {/* Frequently Asked Questions */}
+      <FaqSection />
+
+      {/* Call to Action Final Banner */}
+      <CtaSection onOpenJoinModal={() => onOpenJoinModal()} />
+    </main>
+  );
+}
 
 function AppContent() {
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
   const [selectedTrackForJoin, setSelectedTrackForJoin] = useState<string | undefined>(undefined);
-  const [isDark, setIsDark] = useState(false);
-  const { isRtl } = useLanguage();
-
-  // Sync dark class with document element
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDark]);
 
   const handleOpenJoinModal = (trackId?: string) => {
     setSelectedTrackForJoin(trackId);
@@ -39,52 +78,30 @@ function AppContent() {
     setSelectedTrackForJoin(undefined);
   };
 
-  const toggleTheme = () => {
-    setIsDark((prev) => !prev);
-  };
-
   return (
-    <div className={`min-h-screen bg-surface text-text-primary selection:bg-[#C29B48]/20 selection:text-text-primary flex flex-col ${isRtl ? 'font-arabic' : 'font-sans'}`}>
-      
+    <div className="min-h-screen bg-surface text-text-primary selection:bg-[#c49b57]/20 selection:text-text-primary flex flex-col">
       {/* 1. Global Navigation Bar */}
-      <Navbar
-        onOpenJoinModal={() => handleOpenJoinModal()}
-        isDark={isDark}
-        onToggleTheme={toggleTheme}
-      />
+      <Navbar onOpenJoinModal={() => handleOpenJoinModal()} />
 
-      {/* 2. Main Landing Page Sections */}
-      <main className="flex-1 w-full">
-        {/* Hero Section */}
-        <HeroSection 
-          onOpenJoinModal={() => handleOpenJoinModal()} 
-          onToggleTheme={toggleTheme}
-        />
-
-        {/* About Chapter Section */}
-        <AboutSection />
-
-        {/* 3 Specialized Technical Teams Section */}
-        <TracksSection onOpenJoinModal={(trackId) => handleOpenJoinModal(trackId)} />
-
-        {/* Operational Committees & Leadership */}
-        <CommitteesSection onOpenJoinModal={(committeeId) => handleOpenJoinModal(committeeId)} />
-
-        {/* Infinite Marquee Section */}
-        <MarqueeSection />
-
-        {/* Events & Contests Calendar */}
-        <EventsSection onOpenJoinModal={() => handleOpenJoinModal()} />
-
-        {/* Membership Benefits */}
-        <BenefitsSection onOpenJoinModal={() => handleOpenJoinModal()} />
-
-        {/* Frequently Asked Questions */}
-        <FaqSection />
-
-        {/* Call to Action Final Banner */}
-        <CtaSection onOpenJoinModal={() => handleOpenJoinModal()} />
-      </main>
+      {/* 2. Routes & Views */}
+      <Switch>
+        <Route path="/about">
+          <AboutPage onOpenJoinModal={() => handleOpenJoinModal()} />
+        </Route>
+        <Route path="/up-next">
+          <UpNextPage onOpenJoinModal={() => handleOpenJoinModal()} />
+        </Route>
+        <Route path="/journey">
+          <JourneyPage />
+        </Route>
+        <Route path="/">
+          <HomePage onOpenJoinModal={handleOpenJoinModal} />
+        </Route>
+        {/* Default / Fallback Route */}
+        <Route>
+          <HomePage onOpenJoinModal={handleOpenJoinModal} />
+        </Route>
+      </Switch>
 
       {/* 3. Global Footer */}
       <Footer />
@@ -96,15 +113,18 @@ function AppContent() {
         onClose={handleCloseJoinModal}
         defaultTrack={selectedTrackForJoin}
       />
-
     </div>
   );
 }
 
 export default function App() {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
   return (
     <LanguageProvider>
-      <AppContent />
+      <Router base={base}>
+        <AppContent />
+      </Router>
     </LanguageProvider>
   );
 }

@@ -4,10 +4,10 @@ export interface NavLink {
 }
 
 export const NAV_LINKS: NavLink[] = [
-  { label: 'About', href: '#about' },
-  { label: 'Committees', href: '#committees' },
-  { label: 'Technical Teams', href: '#teams' },
-  { label: 'Events & Contests', href: '#events' },
-  { label: 'Benefits', href: '#benefits' },
-  { label: 'FAQ', href: '#faq' }
+  { label: 'About', href: '/about' },
+  { label: 'Committees', href: '/#committees' },
+  { label: 'Technical Teams', href: '/#teams' },
+  { label: 'Up Next', href: '/up-next' },
+  { label: 'Our Journey', href: '/journey' },
+  { label: 'FAQ', href: '/#faq' }
 ];

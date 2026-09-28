@@ -66,6 +66,8 @@ export const TRANSLATIONS = {
       committees: 'Committees',
       teams: 'Technical Teams',
       events: 'Events & Contests',
+      upNext: 'Up Next',
+      journey: 'Our Journey',
       benefits: 'Benefits',
       faq: 'FAQ',
       joinChapter: 'Join Chapter',
@@ -78,12 +80,27 @@ export const TRANSLATIONS = {
       chapterTitle: 'IU ACM Chapter',
       universitySubtitle: 'Islamic University of Madinah',
     },
+    // Journey
+    journey: {
+      badge: 'Soon',
+      title: 'Our Journey',
+      subtitle: 'Our chapter milestones, historical journey, and future roadmap are being crafted. We look forward to sharing our story with you very soon.',
+      backHome: 'Back to Home',
+    },
+    // Up Next
+    upNext: {
+      badge: 'Up Next',
+      title: 'Up Next: Events & Contests',
+      subtitle: 'Sharpen your skills in collegiate code sprints, algorithm bootcamps, and technical seminars.',
+      backHome: 'Back to Home',
+    },
     // Hero
     hero: {
       officialBadge: 'Official Student Chapter',
       universityBadge: 'Islamic University of Madinah',
       headlinePrefix: 'Empowering Students to',
       headlineHighlight: 'Build The Future',
+      staticSubtitle: 'Five Committees Driving Computing Excellence at Madinah',
       phrases: [
         'Where Algorithmic Rigor Meets Academic Community.',
         'Competitive Programming, Artificial Intelligence & Robotics.',
@@ -92,7 +109,7 @@ export const TRANSLATIONS = {
       ],
       narrative:
         'Welcome to the official website of the Islamic University of Madinah ACM Student Chapter: A community of passionate Computer Science and Engineering students, driven by curiosity, code, and cutting-edge technology. We welcome students of all backgrounds, interests, and skill levels to join our community and share our love for technology.',
-      joinBtn: 'Join The Chapter',
+      joinBtn: 'Join Chapter',
       exploreTeamsBtn: 'Explore Technical Teams',
       committeesBtn: 'Chapter Committees',
       badgeCommittees: '5 Core Committees',
@@ -333,6 +350,8 @@ export const TRANSLATIONS = {
       committees: 'اللجان',
       teams: 'الفرق التقنية',
       events: 'الفعاليات والمسابقات',
+      upNext: 'القادم',
+      journey: 'رحلتنا',
       benefits: 'المزايا والفرص',
       faq: 'الأسئلة الشائعة',
       joinChapter: 'انضم للشعبة',
@@ -345,12 +364,27 @@ export const TRANSLATIONS = {
       chapterTitle: 'شعبة ACM الطلابية',
       universitySubtitle: 'الجامعة الإسلامية بالمدينة المنورة',
     },
+    // Journey
+    journey: {
+      badge: 'قريباً',
+      title: 'رحلتنا',
+      subtitle: 'نعمل حالياً على توثيق محطات وإنجازات الشعبة وخارطة طريقنا للمستقبل. نسعد بمشاركتها معكم قريباً!',
+      backHome: 'العودة للرئيسية',
+    },
+    // Up Next
+    upNext: {
+      badge: 'القادم',
+      title: 'القادم: الفعاليات والمسابقات',
+      subtitle: 'طور مهاراتك في المسابقات البرمجية، وورش العمل المتقدمة، والجلسات التقنية التفاعلية.',
+      backHome: 'العودة للرئيسية',
+    },
     // Hero
     hero: {
       officialBadge: 'الشعبة الطلابية الرسمية',
       universityBadge: 'الجامعة الإسلامية بالمدينة المنورة',
       headlinePrefix: 'تمكين الطلاب لـ',
       headlineHighlight: 'صناعة المستقبل',
+      staticSubtitle: 'خمس لجان تقود التميز الحاسوبي في المدينة المنورة',
       phrases: [
         'حيث تلتقي الرصانة الخوارزمية بالبيئة الأكاديمية الملهمة.',
         'البرمجة التنافسية، والذكاء الاصطناعي، وهندسة الروبوتات.',
@@ -359,7 +393,7 @@ export const TRANSLATIONS = {
       ],
       narrative:
        'أهلاً بك في الموقع الرسمي لفرع الطلاب لجمعية آلات الحوسبة (ACM) بالجامعة الإسلامية بالمدينة المنورة: مجتمع يضم طلاب علوم وهندسة الحاسب الآلي المتحمسين، والذين يدفعهـم الفضول، والبرمجة، والتكنولوجيا المتطورة. نرحب بالطلاب من جميع الخلفيات والاهتمامات ومستويات المهارة للانضمام إلى مجتمعنا ومشاركة حبنا للتكنولوجيا.',
-      joinBtn: 'انضم إلى الشعبة',
+      joinBtn: 'انضم للشعبة',
       exploreTeamsBtn: 'استكشف الفرق التقنية',
       committeesBtn: 'لجان الشعبة',
       badgeCommittees: '5 لجان أساسية',
@@ -1310,19 +1344,19 @@ export const LOCALIZED_MARQUEE: Record<Language, string[]> = {
 
 export const LOCALIZED_NAV_LINKS: Record<Language, { label: string; href: string }[]> = {
   en: [
-    { label: 'About', href: '#about' },
-    { label: 'Committees', href: '#committees' },
-    { label: 'Technical Teams', href: '#teams' },
-    { label: 'Events & Contests', href: '#events' },
-    { label: 'Benefits', href: '#benefits' },
-    { label: 'FAQ', href: '#faq' },
+    { label: 'About', href: '/about' },
+    { label: 'Committees', href: '/#committees' },
+    { label: 'Technical Teams', href: '/#teams' },
+    { label: 'Up Next', href: '/up-next' },
+    { label: 'Our Journey', href: '/journey' },
+    { label: 'FAQ', href: '/#faq' },
   ],
   ar: [
-    { label: 'عن الشعبة', href: '#about' },
-    { label: 'اللجان', href: '#committees' },
-    { label: 'الفرق التقنية', href: '#teams' },
-    { label: 'الفعاليات والمسابقات', href: '#events' },
-    { label: 'المزايا', href: '#benefits' },
-    { label: 'الأسئلة الشائعة', href: '#faq' },
+    { label: 'عن الشعبة', href: '/about' },
+    { label: 'اللجان', href: '/#committees' },
+    { label: 'الفرق التقنية', href: '/#teams' },
+    { label: 'القادم', href: '/up-next' },
+    { label: 'رحلتنا', href: '/journey' },
+    { label: 'الأسئلة الشائعة', href: '/#faq' },
   ],
 };
